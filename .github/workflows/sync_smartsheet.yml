@@ -38,14 +38,15 @@ jobs:
           file_pattern: "stories.json"
 
       
-      - name: Deploy stories.json to Cascade Web Server via SFTP
+      - name: Deploy stories.json to SiteGround via SFTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.CASCADE_SERVER_HOST }}
           username: ${{ secrets.CASCADE_SERVER_USER }}
-          sftp: true
+          key-content: ${{ secrets.CASCADE_SSH_PRIVATE_KEY }}
           port: 18765
-          ssh-key: ${{ secrets.CASCADE_SSH_PRIVATE_KEY }}
           local-dir: "./"
           server-dir: "/home/customer/msmary.edu/public_html/assets/data/"
-          git-ftp-args: "--only-file stories.json"
+          exclude: |
+            **/*
+            !stories.json
