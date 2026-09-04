@@ -43,9 +43,9 @@ jobs:
         with:
           server: ${{ secrets.CASCADE_SERVER_HOST }}
           username: ${{ secrets.CASCADE_SERVER_USER }}
-          password: ${{ secrets.CASCADE_SERVER_PASSWORD }}
           sftp: true
           port: 18765
+          ssh-key: ${{ secrets.CASCADE_SSH_PRIVATE_KEY }}
           local-dir: "./"
           server-dir: "/home/customer/msmary.edu/public_html/assets/data/"
           git-ftp-args: "--only-file stories.json"
