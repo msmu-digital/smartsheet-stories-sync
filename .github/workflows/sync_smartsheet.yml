@@ -36,3 +36,16 @@ jobs:
         with:
           commit_message: "auto: update stories.json [skip ci]"
           file_pattern: "stories.json"
+
+      
+      - name: Deploy stories.json to Cascade Web Server via SFTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.CASCADE_SERVER_HOST }}
+          username: ${{ secrets.CASCADE_SERVER_USER }}
+          password: ${{ secrets.CASCADE_SERVER_PASSWORD }}
+          sftp: true
+          port: 18765
+          local-dir: "./"
+          server-dir: "/home/customer/msmary.edu/public_html/assets/data/"
+          git-ftp-args: "--only-file stories.json"
