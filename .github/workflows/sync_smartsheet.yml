@@ -40,7 +40,7 @@ jobs:
       - name: Deploy stories.json to SiteGround via SCP
         uses: appleboy/scp-action@v0.1.7
         with:
-          host: ${{ secrets.CASCADE-SERVER_HOST }}
+          host: ${{ secrets.CASCADE_SERVER_HOST }}
           username: ${{ secrets.CASCADE_SERVER_USER }}
           key: ${{ secrets.CASCADE_SSH_PRIVATE_KEY }}
           passphrase: ${{ secrets.CASCADE_SSH_PASSPHRASE }}
