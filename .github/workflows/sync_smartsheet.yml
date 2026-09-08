@@ -46,4 +46,4 @@ jobs:
           passphrase: ${{ secrets.CASCADE_SSH_PASSPHRASE }}
           port: 18765
           source: "stories.json"
-          target: "/home/customer/msmary.edu/public/_html/assets/data/"
+          target: "/home/customer/msmary.edu/public_html/assets/data/"
