@@ -36,14 +36,3 @@ jobs:
         with:
           commit_message: "auto: update stories.json [skip ci]"
           file_pattern: "stories.json"
-
-      - name: Deploy stories.json to SiteGround via SCP
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.CASCADE_SERVER_HOST }}
-          username: ${{ secrets.CASCADE_SERVER_USER }}
-          key: ${{ secrets.CASCADE_SSH_PRIVATE_KEY }}
-          passphrase: ${{ secrets.CASCADE_SSH_PASSPHRASE }}
-          port: 18765
-          source: "stories.json"
-          target: "/home/customer/msmary.edu/public_html/assets/data/"
