@@ -37,17 +37,13 @@ jobs:
           commit_message: "auto: update stories.json [skip ci]"
           file_pattern: "stories.json"
 
-      - name: Install SSH Key
-        uses: webfactory/ssh-agent@v0.9.0
+      - name: Deploy stories.json to SiteGround via SCP
+        uses: appleboy/scp-action@v0.1.7
         with:
-          ssh-private-key: ${{ secrets.CASCADE_SSH_PRIVATE_KEY }}
-          ssh-passphrase: ${{ secrets.CASCADE_SSH_PASSPHRASE }}
-
-      - name: Add SiteGround to Known Hosts
-        run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan -p 18765 -H ${{ secrets.CASCADE_SERVER_HOST }} >> ~/.ssh/known_hosts
-
-      - name: Deploy stories.json to SiteGround via SFTP
-        run: |
-          rsync -avz -e "ssh -p 18765" stories.json ${{ secrets.CASCADE_SERVER_USER }}@${{ secrets.CASCADE_SERVER_HOST }}://home/customer/msmary.edu/public_html/assets/data/stories.json
+          host: ${{ secrets.CASCADE-SERVER_HOST }}
+          username: ${{ secrets.CASCADE_SERVER_USER }}
+          key: ${{ secrets.CASCADE_SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.CASCADE_SSH_PASSPHRASE }}
+          port: 18765
+          source: "stories.json"
+          target: "/home/customer/msmary.edu/public/_html/assets/data/"
