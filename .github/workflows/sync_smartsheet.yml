@@ -36,3 +36,13 @@ jobs:
         with:
           commit_message: "auto: update stories.json [skip ci]"
           file_pattern: "stories.json"
+
+      - name: Run Usage Auditor
+        run: python audit_story_usage.py
+
+      - name: Upload Usage Report Artifact (Private)
+        uses: actions/upload-artifact@v4
+        with:
+          name: story-usage-audit-report
+          path: usage_report.html
+          retention-days: 14
