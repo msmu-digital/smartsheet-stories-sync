@@ -103,7 +103,7 @@ def generate_html_report(results, output_file="usage_report.html"):
   """
 
   if not results:
-    html_content += `<tr><td colspan="3" class="empty">No story grid components were found on any scanned sitemap pages.</td></tr>`
+    html_content += '<tr><td colspan="3" class="empty">No story grid components were found on any scanned sitemap pages.</td></tr>'
   else:
     for item in results:
       html_content += f"""
