@@ -71,7 +71,7 @@ def audit_pages(page_urls):
 
   return audit_results
 
-def generate _html_report(results, output_file="usage_report.html"):
+def generate_html_report(results, output_file="usage_report.html"):
   """Generates an HTML report summarizing story usage across the site."""
   html_content = f"""<!DOCTYPE html>
 <html lang="en">
