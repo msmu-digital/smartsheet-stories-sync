@@ -90,7 +90,7 @@ def generate_html_report(results, output_file="usage_report.html"):
 </head>
 <body>
   <h1>Success Story Placement Audit Report</h1>
-  <p>Generated automatically on scan. Total components found: <strong>{len(result)}</strong></p>
+  <p>Generated automatically on scan. Total components found: <strong>{len(results)}</strong></p>
   <table>
     <thead>
       <tr>
