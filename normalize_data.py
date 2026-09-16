@@ -11,6 +11,12 @@ def clean_text(text):
   text = text.replace("\u201c", '"').replace("\u201d", '"')
   return text.strip()
 
+def parse_list(text, delimiter=";"):
+  """Splits delimited text into a clean list of strings."""
+  if not text or not isinstance(text, str):
+    return []
+  return [clean_text(item) for item in text.split(delimiter) if item.strip()]
+
 token = os.getenv("SMARTSHEET_ACCESS_TOKEN")
 sheet_id = os.getenv("SMARTSHEET_SHEET_ID")
 
@@ -35,34 +41,38 @@ for row in sheet_data.get("rows", []):
     if col_name:
       raw_story[col_name] = cell.get("value")
 
-  approved_val = raw_story.get("Approved")
-  if approved_val is True or str(approved_val).lower() == "true":
-      raw_photo = raw_story.get("Photo") or raw_story.get("Photo URL") or raw_story.get("Headshot URL") or ""
+  # Filter by status column or approved boolean.
+  status_val = str(raw_story.get("Status") or raw_story.get("Approved")).strip().lower()
 
-      if isinstance(raw_photo, str) and raw_photo.startswith("http"):
-        photo_url = raw_photo.strip()
-      elif isinstance(raw_photo, str) and raw_photo.startswith("/"):
-        photo_url = f"https://msmary.edu{raw_photo.strip()}"
-      else:
-        photo_url = "https://directory.msmary.edu/people/people-photos/placeholder-photo.jpg"
+  if status_val in ["approved", "true"]:
+    raw_photo = raw_story.get("Photo URL") or raw_story.get("Photo") or raw_story.get("Headshot URL") or ""
 
-      first_name = clean_text(raw_story.get("First"))
-      last_name = clean_text(raw_story.get("Last"))
+    if isinstance(raw_photo, str) and raw_photo.startswith("http"):
+      photo_url = raw_photo.strip()
+    elif isinstance(raw_photo, str) and raw_photo.startswith("/"):
+      photo_url = f"https://msmary.edu{raw_photo.strip()}"
+    else:
+      photo_url = "https://directory.msmary.edu/people/people-photos/placeholder-photo.jpg"
+
+    full_name = raw_story.get("Full Name / Headline") or raw_story.get("Full Name")
+    if not full_name:
+      first_name = clean_text(raw_story.get("First") or "")
+      last_name = clean_text(raw_story.get("Last") or "")
+    else:
+      full_name = clean_text(full_name)
       
       cleaned_item = {
-        "first_name": first_name,
-        "last_name": last_name,
-        "full_name": f"{first_name} {last_name}".strip(),
+        "id": clean_text(raw_story.get("Story ID")),
+        "full_name": full_name,
+        "story_type": clean_text(raw_story.get("Story Type") or "person").lower(),
+        "roles": parse_list(raw_story.get("Roles / Tags"), delimiter=";"),
+        "class_year": clean_text(raw_story.get("Class Year")),
         "photo_url": photo_url,
-        "location": clean_text(raw_story.get("City, State")),
-        "majors": clean_text(raw_story.get("Major(s)")),
-        "current_role": clean_text(raw_story.get("Job title / Graduate program")),
-        "quote_why_mount": clean_text(raw_story.get("Why did you choose the Mount?")),
-        "quote_why_major": clean_text(raw_story.get("Why did you choose your major?")),
-        "activities": clean_text(raw_story.get("What activities were you involved in and why?")),
-        "meaningful_experience": clean_text(raw_story.get("Most meaningful experience? Social, academic, etc.")),
-        "quote_equipped": clean_text(raw_story.get("How has the Mount equipped your for post-college?")),
-        "quote_live_significantly": clean_text(raw_story.get("How will you live significantly?"))
+        "location": clean_text(raw_story.get("Hometown / Location") or raw_story.get("City, State")),
+        "majors": parse_list(raw_story.get("Major / Programs") or raw_story.get("Major(s)"), delimiter=";"),
+        "current_role": clean_text(raw_story.get("Role / Next Steps / Excerpt") or raw_story.get("Job Title / Graduate Program")),
+        "testimonials": parse_list(raw_story.get("Testimonials"), delimiter="|"),
+        "related_news": parse_list(raw_story.get("Related News URLs"), delimiter="|")
       }
       normalized_stories.append(cleaned_item)
 
