@@ -1,1 +1,19 @@
-[]
+[
+  {
+    "id": "STORY-0001",
+    "full_name": "Fama Diakhoumpa",
+    "story_type": "person",
+    "roles": [
+      "Student"
+    ],
+    "class_year": "C'26",
+    "photo_url": "https://msmary.edu/academics/career-center/photos/diakhoumpa-fama-425-425.jpg",
+    "location": "Takoma Park, Maryland",
+    "majors": [],
+    "current_role": null,
+    "testimonials": [
+      "My most meaningful experience was meeting a lot of students, friends and families that impacted me in my life in the positive way."
+    ],
+    "related_news": []
+  }
+]
