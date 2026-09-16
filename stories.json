@@ -35,5 +35,23 @@
     "related_news": [
       "https://news.msmary.edu/2026/04/new-school-of-ed.html"
     ]
+  },
+  {
+    "id": "STORY-0003",
+    "full_name": "Thunlwyn Garcia",
+    "story_type": "person",
+    "roles": [
+      "Student, Alumni"
+    ],
+    "class_year": "C'23",
+    "photo_url": "https://news.msmary.edu/2023/03/garcia-in-text.jpg",
+    "location": null,
+    "majors": [],
+    "current_role": null,
+    "testimonials": [],
+    "related_news": [
+      "https://news.msmary.edu/2026/04/elos-aquisition.html",
+      "https://news.msmary.edu/2023/11/mount-st-marys-celebrates-first-student-authored-patent.html"
+    ]
   }
 ]
