@@ -69,7 +69,7 @@ for row in sheet_data.get("rows", []):
         "class_year": clean_text(raw_story.get("Class Year")),
         "photo_url": photo_url,
         "location": clean_text(raw_story.get("Hometown / Location") or raw_story.get("City, State")),
-        "majors": parse_list(raw_story.get("Major / Programs") or raw_story.get("Major(s)"), delimiter=";"),
+        "majors": parse_list(raw_story.get("Majors / Programs") or raw_story.get("Major(s)"), delimiter=";"),
         "current_role": clean_text(raw_story.get("Role / Next Steps / Excerpt") or raw_story.get("Job Title / Graduate Program")),
         "testimonials": parse_list(raw_story.get("Testimonials"), delimiter="|"),
         "related_news": parse_list(raw_story.get("Related News URLs"), delimiter="|")
