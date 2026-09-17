@@ -6,7 +6,7 @@
     "full_name": "Fama Diakhoumpa",
     "story_type": "person",
     "roles": [
-      "Student"
+      "student"
     ],
     "class_year": "C'26",
     "photo_url": "https://msmary.edu/academics/career-center/photos/diakhoumpa-fama-425-425.jpg",
@@ -28,7 +28,7 @@
     "full_name": "Mount Community Celebrates New Anthony F. and Alice G. Agnone School of Education",
     "story_type": "institutional",
     "roles": [
-      "Alumni"
+      "alumni"
     ],
     "class_year": null,
     "photo_url": "https://news.msmary.edu/2026/04/aaa1160.jpeg",
@@ -47,7 +47,7 @@
     "full_name": "Thunlwyn Garcia",
     "story_type": "person",
     "roles": [
-      "Alumni"
+      "alumni"
     ],
     "class_year": "C'23",
     "photo_url": "https://news.msmary.edu/2023/03/garcia-in-text.jpg",
@@ -69,7 +69,7 @@
     "full_name": "David Ginty, Ph.D.",
     "story_type": "person",
     "roles": [
-      "Alumni"
+      "alumni"
     ],
     "class_year": "C'84",
     "photo_url": "https://news.msmary.edu/2017/05/david-ginty.jpg",
@@ -88,7 +88,7 @@
     "full_name": "Raphael Della Ratta",
     "story_type": "person",
     "roles": [
-      "Alumni"
+      "alumni"
     ],
     "class_year": "C'92",
     "photo_url": "https://news.msmary.edu/2023/06/me-crop.jpg",
@@ -98,6 +98,28 @@
     "testimonials": [],
     "related_news": [
       "https://news.msmary.edu/2023/05/raphael-della-ratta-funds-the-climb-the-mount-initiative.html"
+    ]
+  },
+  {
+    "id": "STORY-0006",
+    "first_name": "Blessed",
+    "last_name": "Rother",
+    "full_name": "Blessed Stanley Rother",
+    "story_type": "person",
+    "roles": [
+      "alumni",
+      "seminary"
+    ],
+    "class_year": "S'63",
+    "photo_url": "https://seminary.msmary.edu/_images/pod-images/fr-rother-pod-448.jpg",
+    "location": "Okarche, Oklahoma",
+    "majors": [],
+    "current_role": "First American-Born Martyr",
+    "testimonials": [
+      "The shepherd cannot run."
+    ],
+    "related_news": [
+      "https://news.msmary.edu/2021/07/anniversary-mass-held-for-blessed-stanley-rother.html"
     ]
   }
 ]
