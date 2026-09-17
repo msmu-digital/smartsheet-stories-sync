@@ -61,5 +61,43 @@
       "https://news.msmary.edu/2026/04/elos-aquisition.html",
       "https://news.msmary.edu/2023/11/mount-st-marys-celebrates-first-student-authored-patent.html"
     ]
+  },
+  {
+    "id": "STORY-0004",
+    "first_name": "David",
+    "last_name": "Ph.D.",
+    "full_name": "David Ginty, Ph.D.",
+    "story_type": "person",
+    "roles": [
+      "Alumni"
+    ],
+    "class_year": "C'84",
+    "photo_url": "https://news.msmary.edu/2017/05/david-ginty.jpg",
+    "location": null,
+    "majors": [],
+    "current_role": "Department Chair and the Edward R. and Anne G. Lefler Professor of Neurobiology at Harvard Medical School and an Investigator at the Howard Hughes Medical Institute",
+    "testimonials": [],
+    "related_news": [
+      "https://news.msmary.edu/2026/03/mount-st-marys-alumnus-wins-the-worlds-largest-brain-research-prize.html"
+    ]
+  },
+  {
+    "id": "STORY-0005",
+    "first_name": "Raphael",
+    "last_name": "Della Ratta",
+    "full_name": "Raphael Della Ratta",
+    "story_type": "person",
+    "roles": [
+      "Alumni"
+    ],
+    "class_year": "C'92",
+    "photo_url": "https://news.msmary.edu/2023/06/me-crop.jpg",
+    "location": null,
+    "majors": [],
+    "current_role": "President of Commercial Management Company",
+    "testimonials": [],
+    "related_news": [
+      "https://news.msmary.edu/2023/05/raphael-della-ratta-funds-the-climb-the-mount-initiative.html"
+    ]
   }
 ]
