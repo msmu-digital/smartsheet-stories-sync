@@ -70,6 +70,11 @@ for row in sheet_data.get("rows", []):
 
     if override_last:
       last_name = override_last
+
+    raw_roles = raw_story.get("Roles / Tags") or raw_story.get("Role") or ""
+    roles_list = parse_list(raw_roles, delimiter=",")
+
+    normalized_roles = [r.lower() for r in roles_list]
       
     cleaned_item = {
       "id": clean_text(raw_story.get("Story ID")),
@@ -77,7 +82,7 @@ for row in sheet_data.get("rows", []):
       "last_name": last_name,
       "full_name": full_name,
       "story_type": clean_text(raw_story.get("Story Type") or "person").lower(),
-      "roles": parse_list(raw_story.get("Roles / Tags"), delimiter=";"),
+      "roles": normalized_roles,
       "class_year": clean_text(raw_story.get("Class Year")),
       "photo_url": photo_url,
       "location": clean_text(raw_story.get("Hometown / Location") or raw_story.get("City, State")),
