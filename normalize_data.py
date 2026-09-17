@@ -55,14 +55,21 @@ for row in sheet_data.get("rows", []):
       photo_url = "https://directory.msmary.edu/people/people-photos/placeholder-photo.jpg"
 
     full_name = raw_story.get("Full Name / Headline") or raw_story.get("Full Name")
-    if not full_name:
+
+    if full_name:
+      full_name = clean_text(full_name)
+      parts = full_name.split(" ")
+      first_name = parts[0] if parts else ""
+      last_name = parts[-1] if len(parts) > 1 else ""
+    else:
       first_name = clean_text(raw_story.get("First") or "")
       last_name = clean_text(raw_story.get("Last") or "")
-    else:
-      full_name = clean_text(full_name)
+      full_name = f"{first_name} {last_name}".strip()
       
       cleaned_item = {
         "id": clean_text(raw_story.get("Story ID")),
+        "first_name": first_name,
+        "last_name": last_name,
         "full_name": full_name,
         "story_type": clean_text(raw_story.get("Story Type") or "person").lower(),
         "roles": parse_list(raw_story.get("Roles / Tags"), delimiter=";"),
