@@ -65,6 +65,11 @@ for row in sheet_data.get("rows", []):
       first_name = clean_text(raw_story.get("First") or "")
       last_name = clean_text(raw_story.get("Last") or "")
       full_name = f"{first_name} {last_name}".strip()
+
+    override_last = clean_text(raw_story.get("Sort Last Name"))
+
+    if override_last:
+      last_name = override_last
       
     cleaned_item = {
       "id": clean_text(raw_story.get("Story ID")),
