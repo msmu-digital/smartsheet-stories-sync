@@ -117,5 +117,24 @@
     "related_news": [
       "https://news.msmary.edu/2021/07/anniversary-mass-held-for-blessed-stanley-rother.html"
     ]
+  },
+  {
+    "id": "STORY-0007",
+    "first_name": "Jake",
+    "last_name": "Lindsay",
+    "full_name": "Jake Lindsay",
+    "story_type": "person",
+    "roles": [
+      "alumni"
+    ],
+    "class_year": "C'23",
+    "photo_url": "https://devtest.msmary.edu/web-services/_success_stories/photos/lindsay-jake-425-425.jpg",
+    "location": null,
+    "majors": [
+      "Cybersecurity"
+    ],
+    "current_role": "Senior Public Key Infrastructure Engineer with CVS Health",
+    "testimonials": [],
+    "related_news": []
   }
 ]
